@@ -3,5 +3,8 @@ node_js:
   - latest
 before_script:
   - npm install
+cache:
+  directories:
+    - node_modules
 script:
   - npm run test
