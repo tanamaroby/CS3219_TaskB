@@ -15,4 +15,7 @@ deploy:
   function_name: persona
   region: 'us-east-1'
   runtime: nodejs12.x
-  handler_name: index.handler
+  edge: true
+  on:
+    branch:
+      - main
