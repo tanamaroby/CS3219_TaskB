@@ -1,4 +1,5 @@
 let express = require('express'); // import express
+let serverless = require('serverless-http'); //import serverless
 let bodyParser = require('body-parser'); // import body parser
 let mongoose = require('mongoose'); // import mongoose
 const app = express(); // initialize the app
@@ -12,10 +13,11 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // Connect to mongoose and set connection variable
-mongoose.connect('mongodb://localhost/cs3219_taskb', { useNewUrlParser: true});
+let dburl = 'mongodb+srv://cs3219-taskb:cs3219-taskb@cs3219-taskb.ohyrp.mongodb.net/<dbname>?retryWrites=true&w=majority'
+mongoose.connect(dburl, { useNewUrlParser: true});
 var db = mongoose.connection;
 
-// Check db connecation
+// Check db connecttion
 if (!db) {
     console.log("Error connecting to database");
 } else {
@@ -40,3 +42,4 @@ app.listen(port, function () {
 });
 
 module.exports = app;
+module.exports.handler = serverless(app);
