@@ -15,7 +15,7 @@ deploy:
   function_name: persona
   region: 'us-east-1'
   runtime: nodejs12.x
-  role: arn:aws:iam::319775237067:user/cs3219_taskb
+  role: arn:aws:iam::319775237067:role/cs3219-taskb-dev-us-east-1-lambdaRole
   handler_name: index.handler
   edge: true
   on:
