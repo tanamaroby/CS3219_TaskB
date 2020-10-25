@@ -2,6 +2,7 @@ let express = require('express'); // import express
 let serverless = require('serverless-http'); //import serverless
 let bodyParser = require('body-parser'); // import body parser
 let mongoose = require('mongoose'); // import mongoose
+let cors = require("cors");
 const app = express(); // initialize the app
 
 let apiRoutes = require("./api-routes"); // import routes
@@ -34,6 +35,7 @@ var message = "Hello everyone, welcome to CS3219 OTOT Assignment Task B. This ap
 app.get('/', (req, res) => res.send(message));
 
 // Use api routes in the app
+app.use(cors());
 app.use('/api', apiRoutes);
 
 // Launch app to listen to specific port
